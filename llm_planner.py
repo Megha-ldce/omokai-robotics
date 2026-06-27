@@ -3,7 +3,12 @@ import json
 import re
 from groq import Groq
 
-GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")  # paste your new key
+GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
+if not GROQ_API_KEY:
+    print("ERROR: GROQ_API_KEY environment variable not set.")
+    print("Get a free key at https://console.groq.com (no credit card needed)")
+    print("Then run: export GROQ_API_KEY=your_key_here")
+    exit(1)
 
 SYSTEM_PROMPT = """You are a robot mission planner. Convert natural language commands into a structured mission JSON for a ground robot.
 
