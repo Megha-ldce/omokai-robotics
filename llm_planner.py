@@ -27,10 +27,11 @@ Schema:
 Rules:
 - Speed must be between 0.05 and 0.5 m/s
 - At least 2 waypoints required
-- x,y are in MAP frame coordinates. Robot starts at map position (-2.0, -0.5). So robot start = (-2.0, -0.5), 2m forward = (-2.0+2, -0.5) = (0.0, -0.5), etc.
+- x,y are in MAP frame coordinates. Robot starts at map position (-2.0, -0.5).
+- SAFE ZONE: All waypoints must stay within x: -3.5 to 0.5, y: -1.5 to 1.5
+- Keep all waypoints at least 0.3m away from walls
 - For loops, always return to (-2.0, -0.5) as the final waypoint
 - "repeat" defaults to 1 if not specified
-- For "patrol loop" or "perimeter" commands, last waypoint should return near (0,0)
 - Waypoints must form a logical path (square, loop, line, etc.)
 
 Examples of valid missions:
