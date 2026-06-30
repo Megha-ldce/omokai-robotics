@@ -30,9 +30,9 @@ def main():
 
     print(f"\n[3/3] Executing mission...")
     # Use system python3 which has numpy, rclpy, nav2 msgs
-    subprocess.run(["/usr/bin/python3",
-                    "/home/megha/omokai_ws/mission_executor.py",
-                    mission_file])
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    executor_path = os.path.join(script_dir, "mission_executor.py")
+    subprocess.run(["/usr/bin/python3", executor_path, mission_file])
 
 if __name__ == "__main__":
     main()
