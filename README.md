@@ -99,6 +99,8 @@ This launches:
 - Nav2 navigation stack with pre-built map
 - Automatic initial pose estimation (no manual RViz click needed)
 
+**Note on GPU warnings:** On machines without a dedicated GPU passthrough into Docker (e.g. integrated graphics, or no `--gpus` flag), you may see `MESA: error: Failed to query drm device` and `failed to load driver: iris` in the logs. This is expected — Gazebo and RViz fall back to software rendering. Gazebo will still launch and the robot still moves correctly; RViz may be slow to appear or fail to open in this mode. If RViz doesn't open, try re-running with `--env LIBGL_ALWAYS_SOFTWARE=1` added to the `docker run` command. The mission pipeline itself (LLM → validator → Nav2 executor) does not depend on RViz — Gazebo alone is sufficient to see the robot move.
+
 ### Step 2 — Send a mission prompt (Terminal 2)
 ```bash
 omokai-mission
