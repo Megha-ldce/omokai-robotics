@@ -36,6 +36,7 @@ RUN chmod +x omokai.sh
 # Source ROS in bashrc
 RUN echo "source /opt/ros/jazzy/setup.bash" >> /root/.bashrc && \
     echo "export TURTLEBOT3_MODEL=burger" >> /root/.bashrc && \
+    echo "alias omokai='cd /omokai && ./omokai.sh'" >> /root/.bashrc && \
     echo "alias omokai-mission='cd /omokai && source venv/bin/activate && source /opt/ros/jazzy/setup.bash && python3 run_mission.py'" >> /root/.bashrc
 
 COPY entrypoint.sh /entrypoint.sh
