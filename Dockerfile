@@ -10,7 +10,6 @@ RUN apt-get update && apt-get install -y \
     ros-jazzy-turtlebot3-navigation2 \
     ros-jazzy-nav2-bringup \
     ros-jazzy-nav2-msgs \
-    gazebo \
     && rm -rf /var/lib/apt/lists/*
 
 # Set TurtleBot3 model
